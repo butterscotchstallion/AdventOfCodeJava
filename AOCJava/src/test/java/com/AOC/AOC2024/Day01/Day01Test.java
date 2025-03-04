@@ -12,7 +12,7 @@ public class Day01Test {
     @Test
     public void testDay01() throws FileNotFoundException {
         Day01 day01 = new Day01();
-        ArrayList<String> input = day01.getInputLines("com/AOC/AOC2024/Day01/ZenOfPython.txt");
+        ArrayList<String> input = day01.getInputLines("src/test/resources/com/AOC/AOC2024/ZenOfPython.txt");
         assertNotNull(input);
         assertEquals(19, input.size());
     }
