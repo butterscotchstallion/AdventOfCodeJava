@@ -29,7 +29,7 @@ public class Day01 {
         leftCol.sort((a, b) -> b.compareTo(a));
         rightCol.sort((a, b) -> b.compareTo(a));
 
-        return new HashMap<String, ArrayList<Integer>>() {{
+        return new HashMap<>() {{
             put("leftCol", leftCol);
             put("rightCol", rightCol);
         }};
@@ -49,18 +49,12 @@ public class Day01 {
 
         return distances.stream().mapToInt(Integer::intValue).sum();
     }
-
-    /*
-     * 1. Iterate inputLines
-     * 2. Split each line into separate lists
-     * 3. Sort each list highest to lowest
-     * 4. Iterate
-     */
+    
     public int getSimilarityScore() throws FileNotFoundException {
         HashMap<String, ArrayList<Integer>> inputColumns = getSortedInputColumns();
         ArrayList<Integer> leftCol = inputColumns.get("leftCol");
         ArrayList<Integer> rightCol = inputColumns.get("rightCol");
-        
+
         int score = 0;
         Map<String, Long> counter = rightCol.stream()
                 .collect(Collectors.groupingBy(Object::toString, Collectors.counting()));
